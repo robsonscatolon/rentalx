@@ -1,24 +1,13 @@
-import { DataSource } from "typeorm";
-
-const dataSource = new DataSource({
-    type: "postgres",
-    host: "localhost",
-    port: 5432,
-    username: "postgres",
-    password: "postgres",
-    database: "rentx",
-    migrations: ["./src/database/migrations/*.ts"],
-    entities: ["./src/modules/cars/entities/*.ts"]
-});
+import { createConnection, getConnectionOptions } from 'typeorm';
 
 interface IOptions {
-    host: string;
+  host: string;
 }
-  
-const options = dataSource.options as IOptions
-options.host = 'database'
 
-dataSource.setOptions(options)
-dataSource.initialize();
-
-export { dataSource };
+getConnectionOptions().then(options => {
+  const newOptions = options as IOptions;
+  newOptions.host = 'database'; //Essa opção deverá ser EXATAMENTE o nome dado ao service do banco de dados
+  createConnection({
+    ...options,
+  });
+});
