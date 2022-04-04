@@ -6,7 +6,7 @@ interface ICreateCategoryDTO {
 }
 
 interface ICategoriesRepository {
-    findByName(name: String): Promise<Category>;
+    findByName(name: String): Promise<Category | undefined>;
 
     list(): Promise<Category[]>;
 

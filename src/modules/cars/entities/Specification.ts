@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import {Entity, Column, PrimaryColumn, CreateDateColumn} from "typeorm
+import {Entity, Column, PrimaryColumn, CreateDateColumn} from "typeorm"
 
 @Entity("specifications")
 class Specification {
