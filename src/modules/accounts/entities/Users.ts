@@ -4,22 +4,22 @@ import { v4 as uuidV4 } from "uuid"
 @Entity("users")
 class Users {
     @PrimaryColumn()
-    id: String;
+    id: string;
 
     @Column()
-    name: String;
+    name: string;
 
     @Column()
-    email: String;
+    email: string;
 
     @Column()
-    password: String;
+    password: string;
 
     @Column()
-    driver_license: String;
+    driver_license: string;
 
     @Column()
-    isAdmin: Boolean;
+    isAdmin: boolean;
 
     @Column()
     created_at: Date;
